@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  </head>
+  <body>
+  
+ <div style="border-width: 1px; border-style: solid;" id="external">mist</div>
+ <script>
+
+        $.load('table2.html', function (data) {
+    data = $(data).find('title');
+    // data contains your html
+    console.log(data);
+});
+        
+</script>
+
+ 
+   <h1>Insert SVG here.</h1>
+  <object data="G13_Layout_Numberd.svg" id="alphasvg" type="image/svg+xml">
+  </object>
+ 
+    <script>
+       
+        
+        var a = document.getElementById("alphasvg");
+
+        //it's important to add an load event listener to the object, as it will load the svg doc asynchronously
+        a.addEventListener("load",function(){
+            var svgDoc = a.contentDocument; //get the inner DOM of alpha.svg
+            var delta = svgDoc.getElementById("G2A"); //get the inner element by id
+            delta.innerHTML = "P";
+        },false);
+    </script>
+  
+ <!-- <script>
+  var myTableArray = [];
+$("#external table tr").each(function() { 
+    var arrayOfThisRow = [];
+    var tableData = $(this).find('td');
+    if (tableData.length > 0) {
+        tableData.each(function() { arrayOfThisRow.push($(this).text()); });
+        myTableArray.push(arrayOfThisRow);
+    }
+});
+
+alert(myTableArray.join("\n")); // alerts the entire array
+  </script>
+-->
+ 
+  </body>
+</html>
