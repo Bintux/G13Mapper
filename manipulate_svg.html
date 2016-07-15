@@ -3,28 +3,49 @@
     <title></title>
     <meta content="">
     <style></style>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+     <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script-->
+     <script src="muskat.js"></script>
   </head>
   <body>
   <div style="border-width: 1px; border-style: solid;" id="external">mist</div>
-   <script>
-        $.load('table2.html', function (data) {
-        data = $(data).find('title');
-            console.log(data);
-        });
-
-  </script>
+   
 
    <h1>Insert SVG here.</h1>
-  <object data="G13_Layout_Numberd.svg" id="alphasvg" type="image/svg+xml">
-  </object>
+  <object data="G13_Layout_Numberd.svg" id="alphasvg" type="image/svg+xml"></object>
     <script>
-      var a = document.getElementById("alphasvg");
-      a.addEventListener("load",function(){
-        var svgDoc = a.contentDocument;
-        var delta = svgDoc.getElementById("G2A");
-        delta.innerHTML = "P";
-      },false);
-    </script>
+		/******************** LOADING EXTERNAL TABLE ********************/
+        $("#external" ).load('table2.html', function (data) {
+        data = $(data).find('title');
+           // console.log("fuck me i'm famous");
+            //console.log(data);
+        });
+		/************************* END LOADING ********************/
+		
+		var myTableArray = [];
+		$( document ).ready(function () {			
+			$("#external table tr").each(function() { 
+				var arrayOfThisRow = [];
+				var tableData = $(this).find('td');
+				if (tableData.length > 0) {
+					tableData.each(function() { arrayOfThisRow.push($(this).text()); });
+					myTableArray.push(arrayOfThisRow);
+				}
+			});
+			//alert(myTableArray);
+			
+			// elaboration of SVG table
+			var a = document.getElementById("alphasvg");			
+			a.addEventListener("load",function(){
+			
+				var svgDoc = a.contentDocument;
+				var delta = svgDoc.getElementById("G2A");
+				delta.innerHTML = "P";
+			},false);
+			
+		});
+		//console.log(myTableArray.join("\n")); 
+
+		
+  </script>
   </body>
 </html>
