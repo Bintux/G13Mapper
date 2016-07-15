@@ -3,8 +3,7 @@
     <title></title>
     <meta content="">
     <style></style>
-     <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script-->
-     <script src="muskat.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   </head>
   <body>
   <div style="border-width: 1px; border-style: solid;" id="external">mist</div>
@@ -16,8 +15,6 @@
 		/******************** LOADING EXTERNAL TABLE ********************/
         $("#external" ).load('table2.html', function (data) {
         data = $(data).find('title');
-           // console.log("fuck me i'm famous");
-            //console.log(data);
         });
 		/************************* END LOADING ********************/
 		
@@ -31,7 +28,6 @@
 					myTableArray.push(arrayOfThisRow);
 				}
 			});
-			//alert(myTableArray);
 			
 			// elaboration of SVG table
 			var a = document.getElementById("alphasvg");			
@@ -43,9 +39,6 @@
 			},false);
 			
 		});
-		//console.log(myTableArray.join("\n")); 
-
-		
   </script>
   </body>
 </html>
