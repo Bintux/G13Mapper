@@ -29,16 +29,30 @@
 				}
 			});
 			
-			// elaboration of SVG table
 			var a = document.getElementById("alphasvg");			
+			
+			jQuery.each(myTableArray , function(index, value){
+                        var arr = value.toString().split(",");   
+                        console.log(arr[0] + " " + arr[1] + " " + arr[2]);
+                        
+
+			
+			
+			// elaboration of SVG table
 			a.addEventListener("load",function(){
 			
 				var svgDoc = a.contentDocument;
-				var delta = svgDoc.getElementById("G2A");
-				delta.innerHTML = "P";
+				var delta = svgDoc.getElementById(arr[0] + "A");
+				var delta1 = svgDoc.getElementById(arr[0] + "B");
+				var delta2 = svgDoc.getElementById(arr[0] + "C");
+				
+				delta.innerHTML = arr[1];
+				delta1.innerHTML = arr[2];
+				delta2.innerHTML = arr[3];
+				
 			},false);
 			
-		});
+		});});
   </script>
   </body>
 </html>
